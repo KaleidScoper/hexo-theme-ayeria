@@ -12,27 +12,34 @@ module.exports = (hexo) => {
     return ' '.repeat(left) + str + ' '.repeat(gap - left);
   };
 
-  const W = 44;
+  const art = [
+    '     _ __   _______ ____  ___    _',
+    '    / \\\\ \\ / / ____|  _ \\|_ _|  / \\',
+    '   / _ \\\\ V /|  _| | |_) || |  / _ \\',
+    '  / ___ \\| | | |___|  _ < | | / ___ \\',
+    ' /_/   \\_\\_| |_____|_| \\_\\___/_/   \\_\\'
+  ];
+
+  const W = 46;
   const line1 = pad(title, W);
   const line2 = isZh
     ? pad('Hexo 博客 · Ayeria 主题', W)
     : pad('Hexo Blog · Theme Ayeria', W);
   const line3 = pad(url, W);
 
+  const border = '-'.repeat(W + 2);
+  const empty = '|' + ' '.repeat(W) + '|';
+  const artStr = art.map(l => '|' + pad(l, W) + '|').join('\n');
+
   hexo.log.info(`
-------------------------------------------------
-|                                              |
-|              __     ________ _____           |
-|            /\\\\ \\   / /  ____|  __ \\          |
-|           /  \\\\ \\_/ /| |__  | |__) |         |
-|          / /\\ \\\\   / |  __| |  _  /          |
-|         / ____ \\| |  | |____| | \\ \\          |
-|        /_/    \\_\\_|  |______|_|  \\_\\         |
-|                                              |
+${border}
+${empty}
+${artStr}
+${empty}
 |${line1}|
 |${line2}|
 |${line3}|
-|                                              |
-------------------------------------------------
+${empty}
+${border}
 `);
 };

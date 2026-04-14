@@ -10,8 +10,7 @@
   "source": "source-src/main.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KaleidScoper/hexo-theme-ayeria.git",
-    "directory": "themes/ayeria"
+    "url": "git+https://github.com/KaleidScoper/hexo-theme-ayeria.git"
   },
   "keywords": [
     "hexo",

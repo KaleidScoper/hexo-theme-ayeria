@@ -105,36 +105,17 @@
 
 > **已完成**：`package.json` 已更新为指向独立仓库 `hexo-theme-ayeria`。`hello.js` 已完成动态化改造，`source/images/` 中的站点专属图片已迁出，`README.md` 已重写为通用文档。
 
-#### 第二步：清理不应发布的文件
+#### ~~第二步：清理不应发布的文件~~
 
-| 文件 | 操作 |
-|------|------|
-| `source/favicon.svg` | 替换为一个通用占位 favicon，或移除（让用户自行配置） |
-| `source/favicon.svg.old`、`source/favicon.ico.old` | 删除 |
-| `source/test-random-sentences.html` | 删除或移到 `test/` 目录 |
-| `README-random-sentences.md` | 内容已合并入主 README，删除即可 |
+> **已完成**：`source/favicon.svg.old`、`source/favicon.ico.old`、`source/test-random-sentences.html`、`README-random-sentences.md` 已删除。`source/favicon.svg` 保留为主题默认 favicon（内容与 `ayeria.svg` 相同，为主题水滴 Logo）。
 
-#### 第三步：创建发布配套文件
+#### ~~第三步：创建发布配套文件~~
 
-| 文件 | 说明 |
-|------|------|
-| `.npmignore` | 排除 `source-src/`、`.stylintrc`、`rollup.config.js`、`.github/`、`test-*`、`*.old` 等开发文件 |
-| `CHANGELOG.md` | 变更日志，记录从原版 Ayer 以来的改动 |
+> **已完成**：`.npmignore` 已创建（排除 `source-src/`、`rollup.config.js`、`.stylintrc`、`doc/`、`screenshots/` 等）。`CHANGELOG.md` 已创建。
 
-#### 第四步：scaffold 示例
+#### ~~第四步：scaffold 示例~~
 
-在主题目录下创建 `_scaffolds/`（或在 README 中说明），提供包含 Ayeria 专属 front-matter 字段的 scaffold 示例：
-
-```yaml
----
-title: {{ title }}
-date: {{ date }}
-categories:
-tags:
-reward: false
-copyright: true
----
-```
+> **已完成**：`_scaffolds/post.md` 已创建，包含 Ayeria 专属 front-matter 字段（`reward`、`copyright`）。
 
 ### 3.2 站点侧配合改动
 
@@ -265,9 +246,9 @@ npm publish
 
 | 优先级 | 任务 | 预估工作量 | 状态 |
 |--------|------|-----------|------|
-| **P1 — 必须修复** | 清理旧文件和测试文件 | 0.5h | 待处理 |
-| **P2 — 建议修复** | 创建 `.npmignore`、`CHANGELOG.md` | 0.5h | 待处理 |
-| **P3 — 可选** | 提供 scaffold 示例 | 0.5h | 待处理 |
+| ~~P1 — 必须修复~~ | ~~清理旧文件和测试文件~~ | — | **已完成** |
+| ~~P2 — 建议修复~~ | ~~创建 `.npmignore`、`CHANGELOG.md`~~ | — | **已完成** |
+| ~~P3 — 可选~~ | ~~提供 scaffold 示例~~ | — | **已完成** |
 | **P3 — 可选** | 建立 subtree 工作流（仓库名同步改为 `hexo-theme-ayeria`） | 1h | 待处理 |
 | ~~P0~~ | ~~主题重命名 Ayer → Ayeria（文件/目录/代码/配置/文档）~~ | — | **已完成** |
 | ~~P1~~ | ~~去除 `package.json` 中的硬编码~~ | — | **已完成** |

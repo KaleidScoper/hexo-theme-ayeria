@@ -1,0 +1,30 @@
+# 构建源码（用户不需要，产物在 source/dist/）
+source-src/
+rollup.config.js
+
+# 开发工具配置
+.stylintrc
+.gitignore
+.github/
+
+# 文档与内部文件
+doc/
+screenshots/
+CHANGELOG.md
+
+# 编辑器与系统文件
+.DS_Store
+.idea/
+.vscode/
+*.log
+*.iml
+.cache
+.history
+
+# 包管理锁文件
+yarn.lock
+package-lock.json
+
+# 备份文件
+*.old
+_bak.yml
