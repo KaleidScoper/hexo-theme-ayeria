@@ -1,5 +1,8 @@
 # hexo-theme-ayeria
 
+[![npm version](https://img.shields.io/npm/v/hexo-theme-ayeria.svg)](https://www.npmjs.com/package/hexo-theme-ayeria)
+[![npm downloads](https://img.shields.io/npm/dm/hexo-theme-ayeria.svg)](https://www.npmjs.com/package/hexo-theme-ayeria)
+
 一个干净且优雅的 Hexo 博客主题，基于 [Ayer](https://github.com/Shen-Yu/hexo-theme-ayer) 深度定制。
 
 Ayeria —— 源自 Ayer（马来语"水"、西班牙语"昨日"），独立维护的衍生主题。原作者：[Eric-Shen](https://github.com/Shen-Yu)。

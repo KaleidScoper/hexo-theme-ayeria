@@ -1,0 +1,14 @@
+description: A clean and elegant theme for Hexo. Maintained fork of hexo-theme-ayer with data-driven reward system, Giscus comments, random sentences, and 14 languages.
+link: https://github.com/KaleidScoper/hexo-theme-ayeria
+preview: https://kaleidscoper.github.io
+tags:
+  - responsive
+  - one_column
+  - dark_mode
+  - i18n
+  - toc
+  - search
+  - comment
+  - cover
+  - sidebar
+  - reward
