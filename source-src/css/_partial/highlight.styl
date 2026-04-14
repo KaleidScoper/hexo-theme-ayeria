@@ -1,0 +1,118 @@
+// ⚠️ 本文件的编译产物（dist/main.css）已被 source/css/custom.styl 覆盖。
+// custom.styl 使用 CSS 自定义属性（CSS Variables）实现了亮/暗双模式代码块配色。
+// 如需修改代码块样式，请优先编辑 source/css/custom.styl。
+// 本文件仅在通过 Rollup 重新构建主题时生效（npm run build）。
+// ---
+// 以下为 Rollup 构建时使用的后备配色（VS Code Dark+），
+// 确保即使 custom.styl 未加载也能有基本的深色代码块样式。
+
+highlight-background = #1E1E1E
+highlight-foreground = #D4D4D4
+highlight-comment = #6A9955
+highlight-magenta = #C586C0
+highlight-yellow = #DCDCAA
+highlight-orange = #CE9178
+highlight-green = #B5CEA8
+highlight-blue = #569CD6
+highlight-cyan = #4EC9B0
+highlight-light-blue = #9CDCFE
+highlight-gray = #858585
+
+figure.highlight
+  background: highlight-background !important
+  border-radius: 5px
+  margin: 20px 0
+  padding: 15px
+
+.highlight
+  margin: 0
+  padding: 0
+  border-radius: 3px
+  overflow: auto
+  font-size: 14px
+  color: highlight-foreground
+  background: none
+
+  pre
+    font-family font-family-mono
+    border: none
+    margin: 0
+    padding: 0
+    background: none
+
+  table
+    margin: 0
+    width: auto
+    border: none
+
+  td
+    border: none
+    padding: 0
+
+  .gutter
+    pre
+      color: highlight-gray
+      text-align: right
+      padding-right: 5px
+
+  .code
+    pre
+      padding-left: 5px
+
+  .line
+    height: 20px
+    line-height: 20px
+
+  .keyword
+    color: highlight-magenta
+
+  .function
+    color: highlight-yellow
+
+  .string
+    color: highlight-orange
+
+  .number
+    color: highlight-green
+
+  .boolean
+    color: highlight-blue
+
+  .comment
+    color: highlight-comment
+
+  .class
+    color: highlight-cyan
+
+  .variable
+    color: highlight-light-blue
+
+  .operator
+    color: highlight-foreground
+
+  .builtin
+    color: highlight-cyan
+
+  .property
+    color: highlight-light-blue
+
+  .tag
+    color: highlight-blue
+
+  .attribute
+    color: highlight-light-blue
+
+// 更精准地移除 Hexo 生成代码块表格的浅色边框
+// 一般不建议滥用 !important 掩盖结构性问题，这里交代一下故事背景：
+// 1）Hexo 在启用 highlight 行号（line_number: true）时，会把代码块渲染成 <figure.highlight><table><tr><td class="gutter|code">… 的结构；
+// 2）这意味着代码块本质上变成了一张表格，容易受到全局 table/td 样式（尤其是边框）的连带影响；
+// 3）在当前主题中，我们只希望代码块使用 VS Code 风格的无边框卡片，而不希望继承任何表格描边；
+// 4）要从根本上解决，应调整 Hexo 配置（如关闭行号或更换高亮渲染器），但这会彻底改变代码块效果，违背初衷；
+// 5）因此这里使用一个作用域很小、只针对 .article-entry （文章内容区）内代码块的 !important 兜底，避免误伤站点中其它正常表格。
+
+.article-entry figure.highlight,
+.article-entry figure.highlight table,
+.article-entry figure.highlight tr,
+.article-entry figure.highlight td,
+.article-entry figure.highlight th
+  border: none !important
