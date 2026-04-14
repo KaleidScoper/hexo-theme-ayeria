@@ -5,6 +5,8 @@
 
 > **中文文档：** [README（简体中文）](README.md)
 
+![Ayeria theme preview](screenshots/Ayeria.png)
+
 A clean and elegant Hexo blog theme, heavily customized from [Ayer](https://github.com/Shen-Yu/hexo-theme-ayer).
 
 **Ayeria** — a fork maintained independently; the name comes from *Ayer* (Malay “water”, Spanish “yesterday”). Original author: [Eric-Shen](https://github.com/Shen-Yu).
