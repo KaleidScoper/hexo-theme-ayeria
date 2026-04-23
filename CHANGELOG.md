@@ -3,6 +3,31 @@
 本项目基于 [Shen-Yu/hexo-theme-ayer](https://github.com/Shen-Yu/hexo-theme-ayer) v1.9.6 fork 而来。
 以下记录 Ayeria 相对于原版 Ayer 的主要变更。
 
+## [1.9.8] - 2026-04-24
+
+### 样式系统重构
+
+- **模块化样式**：将 `source/css/custom.styl` 中大量内联样式提取到各功能模块文件，`custom.styl` 恢复为仅供用户自定义的空白文件
+- **新增 `typography.styl`**：独立的字体排版模块，统一规范正文、标题、导航栏、标签、存档等各元素的字体族分配（衬线 / 无衬线 / 等宽），支持主题级别字体覆盖
+- **新增 `ayeria-layout.styl`**：将侧边栏宽度、文章宽度、鼠标指针等布局变量抽离为独立文件，通过 `_config.ayeria.yml` 配置项驱动，`head.ejs` 按需引入
+- **重构代码高亮（`highlight.styl`）**：改用 CSS 自定义属性（Custom Properties）实现运行时亮 / 暗双模式切换，配色方案对齐 VS Code Light+ / Dark+，支持亮色行号与内联代码独立配色
+
+### UI / 交互改进
+
+- **搜索弹窗（`search.styl`）**：全面改用玻璃拟态（Glassmorphism）设计，暗黑模式下自动适配，支持毛玻璃背景与圆角卡片布局
+- **打赏弹窗（`reward.styl`）**：重新设计为玻璃拟态卡片，每个渠道标签页现可读取配置中的 `color` 字段，动态更新弹窗主题色（CSS 变量 `--reward-accent`）；`modal.ejs` 和 `ayeria.js` 同步支持该机制
+- **暗黑模式（`_darkmode.styl`）**：补充分享图标的暗黑模式样式
+- **随机句子（`ayeria.styl`）**：补充 `.random-sentence` 样式规则，确保文字居中、字号与行高继承一致
+- **点击特效画布（`ayeria.styl`）**：`.click-effect-canvas` 移至源码模块管理，设置 `pointer-events: none` 防止遮挡交互
+
+### 构建 / 工程
+
+- `rollup.config.js`：移除 `sourceMap: false` 显式配置，回归 Rollup 默认行为
+- `hello.js` 启动横幅：改用模板字符串动态生成边框，ASCII 艺术字同步更新为 Ayeria 字样
+- `.gitignore`：移除已不存在的 `build-css.cjs` 条目
+
+---
+
 ## [1.9.7-0] - 2026-04-14
 
 ### 主题独立化
