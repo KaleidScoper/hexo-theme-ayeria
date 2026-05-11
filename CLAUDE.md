@@ -35,3 +35,10 @@ layout/         EJS 模板
 languages/      i18n 翻译文件
 scripts/        Hexo 辅助脚本（tag/filter/helper）
 ```
+
+## 配置约定
+
+- 主题默认配置在 `_config.yml`，定义所有可用配置项及默认值
+- 用户在 Hexo 站点根目录创建 `_config.ayeria.yml` 覆盖配置项；**`_config.yml` 不直接修改**
+- 自定义 CSS 放 `source/css/custom.styl`
+- `_config.ayeria.yml` 只能覆盖配置项，功能或外观改动需修改主题源码
