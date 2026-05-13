@@ -2,6 +2,9 @@
 source-src/
 rollup.config.js
 
+# 内部开发文档
+CLAUDE.md
+
 # 开发工具配置
 .stylintrc
 .gitignore
