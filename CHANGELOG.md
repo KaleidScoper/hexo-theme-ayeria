@@ -3,6 +3,26 @@
 本项目基于 [Shen-Yu/hexo-theme-ayer](https://github.com/Shen-Yu/hexo-theme-ayer) v1.9.6 fork 而来。
 以下记录 Ayeria 相对于原版 Ayer 的主要变更。
 
+## [1.9.9] - 2026-05-14
+
+### 分享组件重构
+
+- **纯原生 JS 替代 jQuery**：`share.js` 完整重写，移除对 jQuery `$.addClass / $.show / $.hide` 的依赖，改用原生 DOM API
+- **下拉菜单过渡动画**：`.share-wrap` 由 `display:none` 切换改为 `opacity + pointer-events + transform` CSS 过渡，开合更流畅；新增 `open` class 控制状态
+- **Light-dismiss**：点击 `.share-btn` 以外区域自动收起下拉菜单，体验与标准 dropdown 一致
+- **默认 `pointer-events: none`**：分享面板在关闭状态下不拦截底层点击事件，修复"关于"页面社交链接被遮挡的问题
+- **微信模态框过渡**：由 jQuery `fadeToggle` 改为 CSS `visibility + opacity` 过渡（`.visible` class），遮罩同步处理
+- **二维码懒加载**：QR 码图片改为 `data-url` 延迟加载，仅在首次打开微信弹窗时赋值 `src`，减少不必要的网络请求
+- **URL 编码修复**：QR 码 API 请求中对页面 URL 添加 `encodeURIComponent`，修复含中文路径时二维码生成失败的问题
+- **关闭按钮重构**：`.wx-modal-close` 新增圆形背景悬浮效果，与打赏弹窗风格对齐；遮罩与关闭按钮均通过 `addEventListener` 绑定，替代旧的内联 `onclick`
+- **`ayeria.js` 清理**：移除已废弃的 jQuery `.share-outer` click 监听（逻辑已迁入 `share.js`）
+
+### 内容
+
+- `random-sentences.txt`：补充诗句"人生南北多歧路，君向潇湘我向秦"
+
+---
+
 ## [1.9.8] - 2026-04-24
 
 ### 样式系统重构
