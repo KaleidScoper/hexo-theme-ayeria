@@ -3,6 +3,19 @@
 本项目基于 [Shen-Yu/hexo-theme-ayer](https://github.com/Shen-Yu/hexo-theme-ayer) v1.9.6 fork 而来。
 以下记录 Ayeria 相对于原版 Ayer 的主要变更。
 
+## [1.9.10] - 2026-05-19
+
+### 移动端侧边栏 Bug 修复
+
+- **修复 Stylus 取反表达式编译失败**（`ayeria-layout.styl`）：`-$aside-width` 在 Stylus 0.62 解析器中存在歧义，编译后输出字面量 `-$aside-width`（无效 CSS）。移动端 `.sidebar.on { left: -$aside-width }` 因此失效，侧边栏永远停留在 `left: 0` 无法收起。改用 `0 - $aside-width` 减法表达式替代取反运算符，避免解析歧义。
+- **修复移动端侧边栏背景色不一致**（`layout.styl`）：移动端 MQ 中将 `.sidebar` 背景覆写为不透明 `body-color`（`#403e3e`），与桌面端半透明遮罩 `rgba(0,0,0,.8)` 不一致。移除移动端冗余覆写，统一由基类规则控制。旧实现意图为全屏抽屉面板遮挡下层内容，但该行为不可配置且造成视觉割裂。
+
+### 文档
+
+- 新增 `sidebar-mobile-bug-analysis.md`：完整的 Bug 分析、历史溯源（Git 考古）、修复记录
+
+---
+
 ## [1.9.9] - 2026-05-14
 
 ### 分享组件重构
