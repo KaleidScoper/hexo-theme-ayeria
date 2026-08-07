@@ -3,6 +3,28 @@
 本项目基于 [Shen-Yu/hexo-theme-ayer](https://github.com/Shen-Yu/hexo-theme-ayer) v1.9.6 fork 而来。
 以下记录 Ayeria 相对于原版 Ayer 的主要变更。
 
+## [1.9.12] - 2026-08-07
+
+### 样式系统升级：Token 体系与 CSS 自定义属性
+
+- **新增 `_tokens.styl`**：引入主题色 Token 体系（`--color-bg`、`--color-text` 等 CSS 自定义属性），统一管理亮/暗双模式的色彩变量，替代原 `_darkmode.styl` 的 mixin 方案
+- **暗黑模式重构**：`body.darkmode` 改由 Token 驱动，移除 `_darkmode.styl`，样式一致性由 `_tokens.styl` 集中保证
+- **组件样式全面改用 CSS 变量**：`article`、`archive`、`friends`、`gitalk`、`highlight`、`reward`、`search`、`share`、`tocbot` 等模块的硬编码颜色替换为 Token 引用
+- **暗黑模式持久化改用 `localStorage`**：`ayeria.js` 与 `layout.ejs` 统一使用 `localStorage` 存储暗黑模式状态，`layout.ejs` 内联脚本在页面渲染前恢复用户偏好，避免闪烁
+
+### 随机句子功能增强
+
+- **防重复队列**：`random-sentences.js` 重写为 Fisher-Yates 洗牌 + localStorage 持久化牌组，支持 `queue_size` 配置，降低重复展示概率
+- **数据规模扩充**：`random-sentences.txt` 收录大量唐诗宋词与现代诗词（约 2270 行），词库大幅扩充
+- **站点默认关闭 busuanzi 统计**：配合新功能默认值调整
+
+### 其他
+
+- `index.js` 补充 Hexo 5+ 加载说明文档
+- 发布构建产物 `source/dist/` 同步更新
+
+---
+
 ## [1.9.10] - 2026-05-19
 
 ### 移动端侧边栏 Bug 修复
